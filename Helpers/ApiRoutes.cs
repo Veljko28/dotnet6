@@ -4,11 +4,12 @@
     {
         public const string root = "/api";
         public const string version = "/v1";
-       static class UserRoutes
+       public static class UserRoutes
        {
             public const string parent = "/user";
             public const string GetUserById = root + version + parent + "/{id}";
-       }
+            public const string Register = root + version + parent + "/register";
+        }
 
     }
 }
