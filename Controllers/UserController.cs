@@ -18,6 +18,12 @@ namespace ReRun6.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpGet(ApiRoutes.UserRoutes.GetAllUsers)]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            return Ok(_userRepository.GetAllUsers());
+        }
+
         [HttpGet(ApiRoutes.UserRoutes.GetUserById)]
         public async Task<IActionResult> GetUserById([FromRoute] string id)
         {
@@ -35,6 +41,20 @@ namespace ReRun6.Controllers
             try
             {
                 UserResponse user = await _userRepository.RegisterUserAsync(req);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost(ApiRoutes.UserRoutes.Login)]
+        public async Task<IActionResult> Login([FromBody] LoginRequest req)
+        {
+            try
+            {
+                UserResponse user = await _userRepository.LoginUserAsync(req);
                 return Ok(user);
             }
             catch (Exception ex)
