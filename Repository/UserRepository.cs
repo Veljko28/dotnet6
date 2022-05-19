@@ -1,4 +1,5 @@
-﻿using ReRun6.Models;
+﻿using ReRun6.Helpers;
+using ReRun6.Models;
 using ReRun6.Models.Requests;
 using ReRun6.Models.Responses;
 using ReRun6.Repository.Interfaces;
@@ -17,6 +18,11 @@ namespace ReRun6.Repository
             new UserModel(){ Id = "5", UserName = "Test5", Email = "test5@gmail.com", Password = "Test5pass", Points = 15 },
         };
 
+        public List<UserModel> GetAllUsers()
+        {
+            return users;
+        }
+
         // no need of async
         public async Task<UserResponse> GetUserByIdAsync(string id)
         {
@@ -26,12 +32,17 @@ namespace ReRun6.Repository
                 return null;
             }
 
-            return new UserResponse() {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                Points = user.Points
-            };
+            return Mapping.UserModelToResponse(user);
+        }
+
+        public async Task<UserResponse> LoginUserAsync(LoginRequest req)
+        {
+            UserModel user = users.Find(x => x.UserName == req.UserName);
+            if ((user == null) || user.Password != req.Password)
+            {
+                throw new Exception("Cannot match the username and/or password to any user !");
+            }
+            else return Mapping.UserModelToResponse(user);
         }
 
         public async Task<UserResponse> RegisterUserAsync(RegisterRequest req)
@@ -62,12 +73,7 @@ namespace ReRun6.Repository
             };
             users.Add(user);
 
-            return new UserResponse() { 
-                Id = req.Id,
-                UserName = req.UserName,
-                Email = req.Email,
-                Points = req.Points
-            };
+            return Mapping.UserModelToResponse(user);
         }
     }
 }
