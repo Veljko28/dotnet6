@@ -62,5 +62,12 @@ namespace ReRun6.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost(ApiRoutes.UserRoutes.GivePoints)]
+        public async Task<IActionResult> GivePoints([FromRoute] string id)
+        {
+            bool ok = _userRepository.GivePoints(id);
+            return Ok(ok);
+        }
     }
 }
