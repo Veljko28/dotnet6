@@ -78,14 +78,7 @@ namespace ReRun6.Repository
             req.Id = Guid.NewGuid().ToString();
             req.Points = 0;
 
-            UserModel user = new UserModel()
-            {
-                Id = req.Id,
-                UserName = req.UserName,
-                Email = req.Email,
-                Password = req.Password,
-                Points = req.Points
-            };
+            UserModel user = Mapping.RegisterRequestToUserModel(req);
             users.Add(user);
 
             return Mapping.UserModelToResponse(user);

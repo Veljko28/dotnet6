@@ -1,4 +1,5 @@
 ﻿using ReRun6.Models;
+using ReRun6.Models.Requests;
 using ReRun6.Models.Responses;
 
 namespace ReRun6.Helpers
@@ -13,6 +14,18 @@ namespace ReRun6.Helpers
                 UserName = user.UserName,
                 Email = user.Email,
                 Points = user.Points
+            };
+        }
+
+        public static UserModel RegisterRequestToUserModel(RegisterRequest req)
+        {
+            return new UserModel()
+            {
+                Id = req.Id,
+                UserName = req.UserName,
+                Email = req.Email,
+                Password = req.Password,
+                Points = req.Points
             };
         }
 
