@@ -11,6 +11,7 @@
             public const string GetUserById = root + version + parent + "/{id}";
             public const string Register = root + version + parent + "/register";
             public const string Login = root + version + parent + "/login";
+            public const string GivePoints = root + version + parent + "/points/{id}";
         }
 
     }
