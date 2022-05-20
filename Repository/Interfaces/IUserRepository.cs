@@ -11,5 +11,7 @@ namespace ReRun6.Repository.Interfaces
         public Task<UserResponse> RegisterUserAsync(RegisterRequest req);
         public Task<UserResponse> LoginUserAsync(LoginRequest req);
 
+        public bool GivePoints(string id);
+
     }
 }

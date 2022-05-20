@@ -35,6 +35,21 @@ namespace ReRun6.Repository
             return Mapping.UserModelToResponse(user);
         }
 
+        public bool GivePoints(string id)
+        {
+            bool ok = false;
+            foreach (UserModel user in users)
+            {
+                if (user.Id == id)
+                {
+                    user.Points += 5;
+                    ok = true;
+                    break;
+                }
+            }
+            return ok;
+        }
+
         public async Task<UserResponse> LoginUserAsync(LoginRequest req)
         {
             UserModel user = users.Find(x => x.UserName == req.UserName);
@@ -75,5 +90,6 @@ namespace ReRun6.Repository
 
             return Mapping.UserModelToResponse(user);
         }
+
     }
 }
