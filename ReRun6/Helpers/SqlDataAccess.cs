@@ -21,11 +21,12 @@ namespace ReRun6.Helpers
         }
 
 
-        public async Task SaveData<T>(string storeProcedure, T parameters, string connStr = "Default")
+        public async Task<bool> SaveData<T>(string storeProcedure, T parameters, string connStr = "Default")
         {
             using IDbConnection db = new SqlConnection(_config.GetConnectionString(connStr));
             db.Open();
-            await db.ExecuteAsync(storeProcedure, parameters, commandType: CommandType.StoredProcedure);
+            int rowsModified = await db.ExecuteAsync(storeProcedure, parameters, commandType: CommandType.StoredProcedure);
+            return rowsModified > 0;
         }
     }
 }
