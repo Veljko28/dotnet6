@@ -21,13 +21,13 @@ namespace ReRun6.Controllers
         [HttpGet(ApiRoutes.UserRoutes.GetAllUsers)]
         public async Task<IActionResult> GetAllUsers()
         {
-            return Ok(_userRepository.GetAllUsers());
+            return Ok(await _userRepository.GetAllUsers());
         }
 
         [HttpGet(ApiRoutes.UserRoutes.GetUserById)]
-        public async Task<IActionResult> GetUserById([FromRoute] string id)
+        public async Task<IActionResult> GetUserById([FromRoute] string username)
         {
-            UserResponse user = await _userRepository.GetUserByIdAsync(id);
+            UserResponse user = await _userRepository.GetUserByIdAsync(username);
             if (user == null)
             {
                 return NotFound();
@@ -54,8 +54,8 @@ namespace ReRun6.Controllers
         {
             try
             {
-                UserResponse user = await _userRepository.LoginUserAsync(req);
-                return Ok(user);
+                TokenResponse token = await _userRepository.LoginUserAsync(req);
+                return Ok(token);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace ReRun6.Controllers
         [HttpPost(ApiRoutes.UserRoutes.GivePoints)]
         public async Task<IActionResult> GivePoints([FromRoute] string id)
         {
-            bool ok = _userRepository.GivePoints(id);
+            bool ok = await _userRepository.GivePoints(id);
             return Ok(ok);
         }
     }
