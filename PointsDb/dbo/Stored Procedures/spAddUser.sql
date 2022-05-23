@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spAddUser]
-	@UserName NVARCHAR(150) NOT NULL,
-	@Email NVARCHAR(100) NOT NULL,
-	@Password NVARCHAR(256) NOT NULL,
-	@Points INT NOT NULL
+	@UserName NVARCHAR(150),
+	@Email NVARCHAR(100),
+	@Password NVARCHAR(256),
+	@Points INT
 AS
 begin
 	INSERT INTO [dbo].[Users] VALUES (@UserName, @Email, @Password, @Points);
