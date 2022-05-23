@@ -13,7 +13,7 @@ namespace ReRun6.Helpers
             _config = config;
         }
 
-        public async Task<IEnumerable<T>> LoadData<T, U>(string storeProcedure, U parameters, string connStr = "Default")
+        public async Task<IEnumerable<T>> LoadData<T, U>(string storeProcedure, U parameters, string connStr = "DefaultConnection")
         {
             using IDbConnection db = new SqlConnection(_config.GetConnectionString(connStr));
             db.Open();
@@ -21,7 +21,7 @@ namespace ReRun6.Helpers
         }
 
 
-        public async Task<bool> SaveData<T>(string storeProcedure, T parameters, string connStr = "Default")
+        public async Task<bool> SaveData<T>(string storeProcedure, T parameters, string connStr = "DefaultConnection")
         {
             using IDbConnection db = new SqlConnection(_config.GetConnectionString(connStr));
             db.Open();
