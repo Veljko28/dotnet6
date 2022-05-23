@@ -35,7 +35,7 @@ namespace ReRun6.Repository
             return Mapping.UserModelToResponse(user);
         }
 
-        public bool GivePoints(string id)
+        public async Task<bool> GivePoints(string id)
         {
             bool ok = false;
             foreach (UserModel user in users)
@@ -50,14 +50,18 @@ namespace ReRun6.Repository
             return ok;
         }
 
-        public async Task<UserResponse> LoginUserAsync(LoginRequest req)
+        public async Task<TokenResponse> LoginUserAsync(LoginRequest req)
         {
             UserModel user = users.Find(x => x.UserName == req.UserName);
             if ((user == null) || user.Password != req.Password)
             {
                 throw new Exception("Cannot match the username and/or password to any user !");
             }
-            else return Mapping.UserModelToResponse(user);
+            else return new TokenResponse()
+            {
+                Token = "Login Successful !",
+                Expires = "Never"
+            };
         }
 
         public async Task<UserResponse> RegisterUserAsync(RegisterRequest req)
