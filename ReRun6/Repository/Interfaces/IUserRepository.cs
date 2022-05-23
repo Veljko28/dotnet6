@@ -9,9 +9,9 @@ namespace ReRun6.Repository.Interfaces
         public Task<List<UserModel>> GetAllUsers();
         public Task<UserResponse> GetUserByIdAsync(string id);
         public Task<UserResponse> RegisterUserAsync(RegisterRequest req);
-        public Task<UserResponse> LoginUserAsync(LoginRequest req);
+        public Task<TokenResponse> LoginUserAsync(LoginRequest req);
 
-        public bool GivePoints(string id);
+        public Task<bool> GivePoints(string id);
 
     }
 }
