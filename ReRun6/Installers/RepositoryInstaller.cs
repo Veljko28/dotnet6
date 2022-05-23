@@ -8,7 +8,7 @@ namespace ReRun6.Installers
     {
         public void InstallServices(IConfiguration configuration, IServiceCollection services)
         {
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, SqlUserRepository>();
 
             services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
         }
