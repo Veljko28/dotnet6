@@ -68,6 +68,9 @@
     <Build Include="dbo\Stored Procedures\spAddUser.sql" />
     <Build Include="dbo\Stored Procedures\spFindUser.sql" />
     <Build Include="dbo\Tables\Products.sql" />
+    <Build Include="dbo\Stored Procedures\spAddProduct.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteProduct.sql" />
+    <Build Include="dbo\Stored Procedures\spTakeProduct.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PointsDb.publish.xml" />
