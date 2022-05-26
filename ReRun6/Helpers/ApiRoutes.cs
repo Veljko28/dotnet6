@@ -2,8 +2,8 @@
 {
     public static class ApiRoutes
     {
-        public const string root = "/api";
-        public const string version = "/v1";
+        private const string root = "/api";
+        private const string version = "/v1";
        public static class UserRoutes
        {
             public const string parent = "/user";
@@ -12,6 +12,16 @@
             public const string Register = root + version + parent + "/register";
             public const string Login = root + version + parent + "/login";
             public const string GivePoints = root + version + parent + "/points/{id}";
+        }
+        
+
+        public static class ProductRoutes
+        {
+            public const string parent = "/product";
+            public const string GetAllProducts = parent + "/all";
+            public const string AddProduct = parent + "/add";
+            public const string TakeProduct = parent + "/take/{id}";
+
         }
 
     }
