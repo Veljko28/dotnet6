@@ -37,7 +37,8 @@ namespace ReRun6.Repository
             }
             if (product.Amount > 0)
             {
-                return await _db.SaveData<dynamic>("dbo.spTakeProduct", new { productId = id });
+                if (product.Amount == 1) return await DeleteProductAsync(id);
+                else return await _db.SaveData<dynamic>("dbo.spTakeProduct", new { productId = id });
             }
             else throw new Exception("There is no more products of this type left !");
         }
