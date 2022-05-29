@@ -1,0 +1,48 @@
+.register-input {
+    outline: none;
+    color: #000;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    width: 400px;
+}
+
+.register-button {
+    width: 400px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #0cafe5;
+    color: #fff;
+    font-size: 15px;
+    border: 0;
+    border-radius: 10px;
+}
+
+@keyframes hoverFade {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 80%;
+    }
+}
+
+.register-button:hover {
+    animation: hoverFade 0.1s forwards;
+    cursor: pointer;
+}
+
+.register-facebook {
+    width: 400px;
+    background-color: #4267B2;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.register-facebook:hover {
+    animation: hoverFade 0.1s forwards;
+    cursor: pointer;
+}
