@@ -1,0 +1,17 @@
+.nav-link {
+    font-size: 17px;
+    padding: 10px;
+}
+
+@keyframes slowFade {
+    from {
+        color: #000;
+    }
+    to {
+        color: #0cafe5;
+    }
+}
+
+.nav-link:hover {
+    animation: slowFade 0.5s forwards;
+} 
