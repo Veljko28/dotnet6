@@ -6,7 +6,7 @@ import { Grid } from '@mui/material';
 const Navbar = () => {
   return (
     <nav>
-        <Grid container style={{paddingTop: 10, backgroundColor: '#fff', borderBottom: '2px solid #999'}}>
+        <Grid container style={{paddingTop: 10, paddingBottom: 5, backgroundColor: '#fff', borderBottom: '2px solid #999'}}>
             <Grid item xs={6} style={{padding: 15}}>
                     <span style={{padding: 10}} className="nav-link">
                         <Link href="/">Home</Link>
