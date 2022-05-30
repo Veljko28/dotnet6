@@ -1,13 +1,22 @@
 import React from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook';
+import TitleChange from '../constants/TitleChange';
 
 const RegisterForm = () => {
   return (
     <div style={{textAlign: "center", backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
+        <TitleChange title="Register"/>
         <button className="register-facebook">
-            <div style={{display: "inline-block", alignContent: 'center'}}>
-            <FacebookIcon color="white"/>
-                 Sign in with Facebook
+            <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap'
+              }}>
+                 <FacebookIcon color="white" style={{fontSize: 20}}/>
+                 <span style={{marginLeft: 10, fontSize: 18}}>
+                    Sign in with Facebook
+                 </span>
             </div>
         </button>
         <br/>
