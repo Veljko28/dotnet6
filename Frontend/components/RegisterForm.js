@@ -1,18 +1,27 @@
 import React from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
 import TitleChange from '../constants/TitleChange';
 
 const RegisterForm = () => {
   return (
     <div style={{textAlign: "center", backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
         <TitleChange title="Register"/>
-        <button className="register-facebook">
+        <button className="register-google">
             <div style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexWrap: 'wrap'
               }}>
+                 <GoogleIcon color="white" style={{fontSize: 20}}/>
+                 <span style={{marginLeft: 10, fontSize: 18}}>
+                    Sign in with Google
+                 </span>
+            </div>
+        </button>
+        <button className="register-facebook">
+            <div className="icon-adjust">
                  <FacebookIcon color="white" style={{fontSize: 20}}/>
                  <span style={{marginLeft: 10, fontSize: 18}}>
                     Sign in with Facebook
