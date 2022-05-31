@@ -1,0 +1,11 @@
+.footer-container {
+    padding: 20px 120px 20px 120px;
+    background-color: #292C35;
+    color: white;
+    margin-top: auto;
+    border-top: 1px solid #eee;
+  }
+
+  .footer-list {
+    list-style-type: none;
+  }
