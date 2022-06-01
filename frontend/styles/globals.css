@@ -29,3 +29,19 @@ a {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
+.cardContainer {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 5px;
+}
+
+.buttonConainer {
+  margin: 10px;
+  margin-bottom: 0;
+}
