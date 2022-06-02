@@ -38,10 +38,14 @@ a {
   text-align: center;
   border-radius: 5px;
   margin: 15px;
-  padding: 5px;
+  padding: 15px;
 }
 
 .buttonConainer {
   margin: 10px;
   margin-bottom: 0;
+}
+
+.hover-ptr:hover {
+  cursor: pointer;
 }
