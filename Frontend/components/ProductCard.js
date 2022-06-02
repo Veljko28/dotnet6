@@ -6,7 +6,7 @@ import {Grid, Typography, Button} from '@mui/material';
 const ProductCard = (props) => {
   return (
     <Grid container 
-    className="cardContainer" style={{width: '250px', border: '1px solid #eee', maxHeight: 350}}>
+    className="cardContainer" style={{width: '250px', border: '1px solid #eee', maxHeight: 450}}>
        <Link href={`/phone/${props.id}`}>
         <div>
             <div style={{display: 'flex', justifyContent: 'center'}}>
