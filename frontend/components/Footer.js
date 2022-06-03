@@ -8,14 +8,36 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
+
+  const [loggedin,handleLoggedIn] = React.useState(false);
+  let jwt=null
+  React.useEffect( () => {
+      if (typeof window !== 'undefined') {
+          jwt = localStorage.getItem('jid');
+          console.log(jwt);
+          if (jwt != null){
+              handleLoggedIn(true);
+          }
+      }
+  })
+
   return (
     <Grid container className="footer-container">
         <Grid item xs={4}>
           <p style={{fontSize: 14, color: '#999', marginLeft: 37.5}}>Navigation</p>
           <ul className="footer-list">
             <li><Link href="/home">Home</Link></li>
-            <li><Link href="/register">Register</Link></li>
-            <li><Link href="/login">Login</Link></li>
+            {loggedin ? (
+              <>
+                <li><Link href="/prizes">Prizes</Link></li>
+                <li><Link href="/profile">Profile</Link></li>
+              </>
+            ) : (
+              <>
+                <li><Link href="/register">Register</Link></li>
+                <li><Link href="/login">Login</Link></li>
+              </>
+            )}
           </ul>
         </Grid>
         <Grid item xs={4} style={{textAlign: "center", marginTop: 25}}>
