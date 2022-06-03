@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import '../styles/navbar.css';
 import '../styles/register.css';
 import '../styles/footer.css';
+import '../styles/profile.css';
+
 
 
 function MyApp({ Component, pageProps }) {
