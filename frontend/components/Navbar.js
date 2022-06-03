@@ -47,7 +47,7 @@ const Navbar = () => {
                             <Link href="/">Home</Link>
                         </span>
                         <span style={{padding: 10}} className="nav-link">
-                            <Link href="/points">Prizes</Link>  
+                            <Link href="/prizes">Prizes</Link>  
                         </span>
                         <span style={{padding: 10, color: '#0cafe5'}}>
                             {pointsMessage == "Click for 100" ? (
