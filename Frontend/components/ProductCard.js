@@ -7,10 +7,10 @@ const ProductCard = (props) => {
   return (
     <Grid container 
     className="cardContainer" style={{width: '250px', border: '1px solid #eee', maxHeight: 450}}>
-       <Link href={`/phone/${props.id}`}>
         <div>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-               <img src={props.image}  width="150px" height="150px"/>
+              <Image src="/prize.png" width={125} height={125}/>  
+              {/* <img src={props.image}  width="150px" height="150px"/> */}
             </div>
 
             <div className="card-textarea">
@@ -25,7 +25,6 @@ const ProductCard = (props) => {
               </Typography>
             </div>
           </div>
-        </Link>
 
         <div className="buttonConainer">
             <Button variant="contained" color="primary">Take !</Button>
