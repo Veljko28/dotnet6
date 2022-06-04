@@ -4,6 +4,7 @@ import '../styles/navbar.css';
 import '../styles/register.css';
 import '../styles/footer.css';
 import '../styles/profile.css';
+import '../styles/home.css';
 
 
 
