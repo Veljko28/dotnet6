@@ -132,3 +132,9 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
+.tabs-card {
+  background-color: #fff;
+  padding: 10px;
+  margin: 15px;
+}
