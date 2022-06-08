@@ -7,5 +7,6 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public int Points { get; set; } = 0;
+        public DateTime UntilPoints { get; set; }
     }
 }
