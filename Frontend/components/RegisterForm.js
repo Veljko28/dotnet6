@@ -35,9 +35,9 @@ const RegisterForm = () => {
         <br/>
         <input placeholder="Email"  className="register-input" />
         <br/>
-        <input placeholder="Password"  className="register-input" />
+        <input placeholder="Password" type="password" className="register-input" />
         <br/>
-        <input placeholder="Confirm Password"  className="register-input"/>
+        <input placeholder="Confirm Password"  type="password" className="register-input"/>
         <br/>
         <button className="register-button">
             Sign In

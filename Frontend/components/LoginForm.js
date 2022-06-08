@@ -38,7 +38,7 @@ const LoginForm = () => {
         <h2 style={{color: '#0cafe5'}}>Login</h2>
         <input placeholder="UserName" className="register-input"/>
         <br/>
-        <input placeholder="Password"  className="register-input" />
+        <input placeholder="Password" type="password"  className="register-input" />
         <br/>
         <button className="register-button">
             Login
