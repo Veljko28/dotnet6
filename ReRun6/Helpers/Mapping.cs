@@ -13,7 +13,8 @@ namespace ReRun6.Helpers
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
-                Points = user.Points
+                Points = user.Points,
+                UntilFreePoints = user.UntilPoints
             };
         }
 
@@ -21,11 +22,11 @@ namespace ReRun6.Helpers
         {
             return new UserModel()
             {
-                Id = req.Id,
                 UserName = req.UserName,
                 Email = req.Email,
                 Password = req.Password,
-                Points = req.Points
+                Points = 0,
+                UntilPoints = DateTime.Now.AddMinutes(10)
             };
         }
 

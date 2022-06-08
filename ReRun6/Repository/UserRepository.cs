@@ -79,10 +79,9 @@ namespace ReRun6.Repository
                 throw new Exception("The email is already in use!");
             }
 
-            req.Id = Guid.NewGuid().ToString();
-            req.Points = 0;
 
             UserModel user = Mapping.RegisterRequestToUserModel(req);
+            user.Id = Guid.NewGuid().ToString();
             users.Add(user);
 
             return Mapping.UserModelToResponse(user);

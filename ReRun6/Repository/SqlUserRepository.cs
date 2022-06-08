@@ -80,7 +80,7 @@ namespace ReRun6.Repository
             return new TokenResponse()
             {
                 Token = tokenHandler.WriteToken(token),
-                Expires = DateTime.UtcNow.Add(_jwtSettings.TokenLifetime).ToString()
+                Expires = DateTime.UtcNow.Add(_jwtSettings.TokenLifetime).ToString() // 4 days long token
             };
         }
 
@@ -104,9 +104,10 @@ namespace ReRun6.Repository
             }
 
             UserModel user = Mapping.RegisterRequestToUserModel(req);
+            user.Id = Guid.NewGuid().ToString();
             await _db.SaveData<dynamic>("dbo.spAddUser", 
-                new { user.UserName, user.Email, 
-                    Password = PasswordHashing.HashPassword(user.Password), Points = 0 });
+                new { user.Id, user.UserName, user.Email, 
+                    Password = PasswordHashing.HashPassword(user.Password), Points = 0, user.UntilPoints});
 
             return Mapping.UserModelToResponse(user);
         }
