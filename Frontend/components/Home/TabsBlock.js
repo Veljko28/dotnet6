@@ -9,7 +9,8 @@ const TabsBlock = () => {
         <Grid container style={{padding: 50, backgroundColor: "#0cafe5"}}>
             <Grid xs={2} item/>
             <Grid xs={8} item container>
-                <Grid md={4} xs={12} item className="tabs-card">
+                <Grid item lg={1}/>
+                <Grid md={6} lg={3} xs={12} item className="tabs-card">
                     <Image src="/icon1.png" width={100} height={100}/>
                     <Typography variant="h5" className="tab-title">Work From Anywhere</Typography>
                     <Typography variant="subtitle1" style={{marginTop: 10}}>
@@ -17,7 +18,7 @@ const TabsBlock = () => {
                         Doesn't matter if you are from Brazil or Japan, you can earn points and get rewards.
                     </Typography>
                 </Grid>
-                <Grid  md={3} xs={12} item className="tabs-card">
+                <Grid md={6} lg={3} xs={12} item className="tabs-card">
                     <Image src="/icon2.png" width={100} height={100}/>
                     <Typography  variant="h5" className="tab-title">Progression</Typography>
                     <Typography variant="subtitle1" style={{marginTop: 10}}>
@@ -25,7 +26,7 @@ const TabsBlock = () => {
                         The job providers trust you more the more you do and in return you make more points.
                     </Typography>
                 </Grid>
-                <Grid md={3} xs={12} item className="tabs-card">
+                <Grid md={6} lg={3} xs={12} item className="tabs-card">
                     <Image src="/icon3.png" width={100} height={100}/>
                     <Typography variant="h5" className="tab-title">Security</Typography>
                     <Typography variant="subtitle1" style={{marginTop: 10}}>
