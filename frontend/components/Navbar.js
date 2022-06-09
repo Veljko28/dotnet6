@@ -46,6 +46,9 @@ const Navbar = () => {
                             <Link href="/">Home</Link>
                         </span>
                         <span style={{padding: 10}} className="nav-link">
+                            <Link href="/jobs">Jobs</Link>  
+                        </span>
+                        <span style={{padding: 10}} className="nav-link">
                             <Link href="/prizes">Prizes</Link>  
                         </span>
                         <span style={{padding: 10, color: '#0cafe5'}}>
