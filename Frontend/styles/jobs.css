@@ -1,0 +1,10 @@
+.jobs-container {
+    width: 100%;
+    background-color: #fff; 
+    padding: 20px
+}
+
+.price-tab {
+    display: flex;
+    justify-content: space-between;
+}
