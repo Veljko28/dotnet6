@@ -14,4 +14,6 @@
 
 .nav-link:hover {
     animation: slowFade 0.5s forwards;
+    cursor: pointer;
 } 
+

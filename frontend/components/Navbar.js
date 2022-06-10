@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 import Image from 'next/image';
 import { Grid } from '@mui/material';
 
@@ -7,6 +8,7 @@ const cdd = new Date(new Date().getTime() + 600000).getTime(); // 10 minutes
 
 
 const Navbar = () => {
+    const router = useRouter();
     const [loggedin,handleLoggedIn] = React.useState(false);
     const [pointsMessage,handlePointsMessage] = React.useState("");
     let jwt=null
@@ -71,7 +73,10 @@ const Navbar = () => {
                         </span>
                         <span style={{padding: 10}} className="nav-link" onClick={() => {
                             localStorage.clear();
-                            location.reload();
+                            router.push(`/`)
+                            setTimeout(() => {
+                                location.reload();
+                            }, 500)
                         }}>
                            Logout  
                         </span>
