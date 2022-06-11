@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid,Typography} from '@mui/material';
+import {Button, Grid,Typography} from '@mui/material';
 import Image from 'next/image';
 
 const JobCard = (props) => {
@@ -16,15 +16,20 @@ const JobCard = (props) => {
         </Typography>
         <Typography variant="subtitle2">
             {props.desc}
-        </Typography>
-        <Typography variant="subtitle1" className="price-tab">
-            <div style={{color: "#0cafe5"}}>
-                Price: {props.points} <Image src="/points.png" width={10} height={15} />  
-            </div>
-            <div style={{marginRight: 15}}>
+            <br/>
+            <div style={{display: "flex", justifyContent: "flex-end", marginRight: 15}}>
                 Time: {props.time}
             </div>
         </Typography>
+        <Typography variant="subtitle1" className="price-tab">
+            <div style={{color: "#0cafe5"}}>
+                Reward: {props.points} <Image src="/points.png" width={10} height={15} />  
+            </div>
+            <div style={{marginRight: 15}}>
+                <Button variant="contained" style={{backgroundColor: "#0cafe5", color: "white"}}>Apply</Button>
+            </div>
+        </Typography>
+        
         </Grid>
     </Grid>
   )
