@@ -1,7 +1,9 @@
 import React from 'react'
 import {Grid} from '@mui/material'
-import TitleChange from '../constants/TitleChange'
-import JobCard from '../components/JobCard'
+import TitleChange from '../../constants/TitleChange'
+import JobCard from '../../components/JobCard'
+import {useRouter} from 'next/router'
+import Pages from '../../constants/Pages'
 
 
 const jobsList = [
@@ -36,6 +38,10 @@ const jobsList = [
 ]
 
 const jobs = () => {
+
+  const router = useRouter()
+  const id = router.query['id'];
+
   return (
     <Grid container style={{backgroundColor: '#0cafe5', padding: 20, textAlign: "center"}}>
       <TitleChange title="Jobs"/>
@@ -45,6 +51,9 @@ const jobs = () => {
           {jobsList.map(x => <JobCard key={x.id} {...x}/>)}
       </Grid>
       <Grid item xs={1}/>
+      <Grid xs={12} item style={{display: "flex", justifyContent: "center", margin: 10}}>
+        <Pages pageId={id} numOfPages={5}/>
+      </Grid>
     </Grid>
   )
 }
