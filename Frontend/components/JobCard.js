@@ -1,8 +1,13 @@
 import React from 'react'
 import {Button, Grid,Typography} from '@mui/material';
 import Image from 'next/image';
+import { SnackBarSuccess } from '../constants/SnackBar';
+import ConfirmModal from './ConfirmModal';
 
 const JobCard = (props) => {
+  const [snackBar,handleSnackBar] = React.useState(false);
+  const [modal,handleModal] = React.useState(false);
+
   return (
     <Grid container className="jobs-container">
         <Grid xs={12} md={4} item>
@@ -26,11 +31,16 @@ const JobCard = (props) => {
                 Reward: {props.points} <Image src="/points.png" width={10} height={15} />  
             </div>
             <div style={{marginRight: 15}}>
-                <Button variant="contained" style={{backgroundColor: "#0cafe5", color: "white"}}>Apply</Button>
+                <Button variant="contained" 
+                onClick={() => handleModal(true)} 
+                style={{backgroundColor: "#0cafe5", color: "white"}}>Apply</Button>
             </div>
         </Typography>
         
         </Grid>
+        <SnackBarSuccess snackBarOpen={snackBar} changeSnackBarOpen={() => handleSnackBar(false)} message="Successfully applied for the job"/>
+        <ConfirmModal title={"Confirm Application"}
+         desc={" Are you sure you want to apply for job title:"} job={props.title} open={modal} handleApply={() => {handleSnackBar(true); handleModal(false)}} handleClose={() => handleModal(false)}/>
     </Grid>
   )
 }
