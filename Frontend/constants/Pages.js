@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 
 
-const Pages = ({pageId, numOfPages}) => {
+const Pages = ({pageId, numOfPages, pageType}) => {
 
     
     const intPageId = parseInt(pageId);
 
     const PageButton = ({id}) => {
         return (
-            <Link key={Math.random() % 100} href={`/jobs/${id}`}>
+            <Link key={Math.random() % 100} href={`/${pageType}/${id}`}>
                     <Button variant="contained" 
                     style={{backgroundColor: id == intPageId ? '#eee' : '#fff', color: '#0cafe5', margin: '5px'}}>
                         {id}
@@ -21,7 +21,7 @@ const Pages = ({pageId, numOfPages}) => {
     }
 
     const PrevButton = () => {
-        return (<Link key={Math.random() % 100} href={`/jobs/${intPageId-1}`}>
+        return (<Link key={Math.random() % 100} href={`/${pageType}/${intPageId-1}`}>
                     <Button variant="contained" 
                     style={{backgroundColor: '#fff', color: '#0cafe5', margin: '5px'}}>
                         Prev
@@ -30,7 +30,7 @@ const Pages = ({pageId, numOfPages}) => {
     }
 
      const NextButton = () => {
-        return (<Link key={Math.random() % 100} href={`/jobs/${intPageId+1}`}>
+        return (<Link key={Math.random() % 100} href={`/${pageType}/${intPageId+1}`}>
                     <Button variant="contained" 
                     style={{backgroundColor: '#fff', color: '#0cafe5', margin: '5px'}}>
                         Next
