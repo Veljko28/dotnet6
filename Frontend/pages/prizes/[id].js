@@ -1,6 +1,8 @@
 import { Grid } from '@mui/material'
-import ProductCard from '../components/ProductCard'
-import TitleChange from '../constants/TitleChange'
+import { useRouter } from 'next/router'
+import ProductCard from '../../components/ProductCard'
+import TitleChange from '../../constants/TitleChange'
+import Pages from '../../constants/Pages'
 
 
 const product = [
@@ -77,11 +79,15 @@ const product = [
 ]
 
 export default function Prizes() {
+  const router = useRouter();
+  const id = router.query['id'];
+  
   return (
     <Grid style={{backgroundColor: '#0cafe5', padding: 20, textAlign: "center"}}>
       <TitleChange title="Prizes"/>
       <h1 style={{color: 'white'}}>Products</h1>
       {product.map(x => <ProductCard key={x.id} {...x}/>)}
+      <Pages pageId={id} numOfPages={5} pageType={"prizes"}/>
     </Grid>
   )
 }
