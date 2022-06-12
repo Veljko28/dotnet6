@@ -51,7 +51,7 @@ const Navbar = () => {
                             <Link href="/jobs/1">Jobs</Link>  
                         </span>
                         <span style={{padding: 10}} className="nav-link">
-                            <Link href="/prizes">Prizes</Link>  
+                            <Link href="/prizes/1">Prizes</Link>  
                         </span>
                         <span style={{padding: 10, color: '#0cafe5'}}>
                             {pointsMessage == "Click for 100" ? (
