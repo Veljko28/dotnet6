@@ -52,7 +52,7 @@ const jobs = () => {
       </Grid>
       <Grid item xs={1}/>
       <Grid xs={12} item style={{display: "flex", justifyContent: "center", margin: 10}}>
-        <Pages pageId={id} numOfPages={5}/>
+        <Pages pageId={id} numOfPages={5} pageType={"jobs"}/>
       </Grid>
     </Grid>
   )
