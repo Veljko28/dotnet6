@@ -26,11 +26,11 @@ const Footer = () => {
         <Grid item xs={4}>
           <p style={{fontSize: 14, color: '#999', marginLeft: 37.5}}>Navigation</p>
           <ul className="footer-list">
-            <li><Link href="/home">Home</Link></li>
+            <li><Link href="/">Home</Link></li>
             {loggedin ? (
               <>
-                <li><Link href="/prizes">Prizes</Link></li>
-                <li><Link href="/profile">Profile</Link></li>
+                <li><Link href="/prizes/1">Prizes</Link></li>
+                <li><Link href="/profile/1">Profile</Link></li>
               </>
             ) : (
               <>
