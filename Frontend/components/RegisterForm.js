@@ -7,6 +7,8 @@ import formatYupError from '../constants/formatYupError';
 import YupError from '../constants/YupError';
 import { SnackBarSuccess } from '../constants/SnackBar';
 import * as yup from 'yup';
+import { Typography, Checkbox } from '@mui/material';
+import Link from 'next/link'
 
 
 const yupSchema = yup.object().shape({
@@ -20,6 +22,7 @@ const RegisterForm = () => {
     const router = useRouter();
 
     const [errors,changeErrors] = React.useState([]);
+    const [tosChecked, changeTosChecked] = React.useState(false);
 
     const [snackBar,changeSnackBar] = React.useState({
         error: false,
@@ -58,7 +61,7 @@ const RegisterForm = () => {
 
 
   return (
-    <div style={{textAlign: "center", backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
+    <div style={{ backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
         <TitleChange title="Register"/>
         <button className="register-google">
             <div style={{
@@ -83,7 +86,7 @@ const RegisterForm = () => {
         </button>
         <br/>
         <hr/>
-        <h2 style={{color: '#0cafe5'}}>Sign In</h2>
+        <h2 style={{color: '#0cafe5', textAlign: "center"}}>Sign In</h2>
         <input placeholder="UserName" className="register-input" id="userName"/>
         <YupError errors={errors} path="userName"/>
         <br/>
@@ -96,7 +99,15 @@ const RegisterForm = () => {
         <input placeholder="Confirm Password"  type="password" className="register-input" id="confirm_password" />
         <YupError errors={errors} path="confirm_password"/>
         <br/>
-        <button className="register-button" onClick={async () => await verify()}>
+        <div>
+          <Checkbox style={{display: "inline-block"}} onChange={(e) => {
+              changeTosChecked(e.target.checked);
+          }}/>
+          <Typography style={{display: "inline-block"}} variant="subtitle2">I've read the
+           <Link href="/tos"><span style={{color: "#0cafe5"}} className="hover-ptr"> Terms of Serivce</span></Link></Typography>
+        </div>
+        <br/>
+        <button className={tosChecked ? "register-button" : "register-button-disabled"} onClick={tosChecked ? async () => await verify() : () => {}}>
             Sign In
         </button>
 
