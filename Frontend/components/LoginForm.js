@@ -4,8 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import TitleChange from '../constants/TitleChange';
 import {SnackBarSuccess, SnackBarFailed} from '../constants/SnackBar';
-
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Checkbox, Typography } from '@mui/material';
 
 const test = {
     userName: "testUser",
@@ -16,6 +15,7 @@ const LoginForm = () => {
 
     const router = useRouter();
 
+    const [keepLoggedChecked, changeKeepLoggedChecked] = React.useState(false);
     const [snackBar,changeSnackBar] = React.useState({
         error: false,
         success: false,
@@ -51,7 +51,7 @@ const LoginForm = () => {
     }
 
   return (
-    <div style={{textAlign: "center", backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
+    <div style={{backgroundColor: '#fcfcfc', margin: 15, padding: 20}}>
         <TitleChange title="Login"/>
         <button className="register-google">
             <div style={{
@@ -81,10 +81,17 @@ const LoginForm = () => {
         </button>
         <br/>
         <hr/>
-        <h2 style={{color: '#0cafe5'}}>Login</h2>
+        <h2 style={{color: '#0cafe5', textAlign: "center"}}>Login</h2>
         <input placeholder="UserName" className="register-input" id="username"/>
         <br/>
         <input placeholder="Password" type="password"  className="register-input" id="password" />
+        <br/>
+        <div>
+          <Checkbox style={{display: "inline-block"}} onChange={(e) => {
+              changeKeepLoggedChecked(e.target.checked);
+          }}/>
+          <Typography style={{display: "inline-block"}} variant="subtitle2">Keep Me Logged In</Typography>
+        </div>
         <br/>
         <button className="register-button" onClick={() => verify()}>
             {snackBar.loading ? <CircularProgress  style={{color: '#fff'}} size={13} /> : "Login"}
