@@ -41,7 +41,7 @@ const Footer = () => {
           </ul>
         </Grid>
         <Grid item xs={4} style={{textAlign: "center", marginTop: 25}}>
-            <Link href="/terms">Terms of service</Link>
+            <Link href="/tos">Terms of service</Link>
             <br/>
             <Link href="/about">About</Link>
             <p style={{fontSize: 14, color: '#999'}}>Points Project &copy; Copyright 2022</p>
