@@ -5,6 +5,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import TitleChange from '../constants/TitleChange';
 import {SnackBarSuccess, SnackBarFailed} from '../constants/SnackBar';
 import { CircularProgress, Checkbox, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { userInfoUpdate } from '../redux/actions/userActions';
 
 const test = {
     userName: "testUser",
@@ -14,6 +16,7 @@ const test = {
 const LoginForm = () => {
 
     const router = useRouter();
+    const dispatch = useDispatch();
 
     const [keepLoggedChecked, changeKeepLoggedChecked] = React.useState(false);
     const [snackBar,changeSnackBar] = React.useState({
@@ -37,6 +40,7 @@ const LoginForm = () => {
                 loading: false
             })
             localStorage.setItem('jid','test');
+            dispatch(userInfoUpdate({userName, points: 400}))
             setTimeout(() => {
                 router.push(`/`)
              }, 1500)
