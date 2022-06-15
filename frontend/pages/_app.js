@@ -6,14 +6,18 @@ import '../styles/footer.css';
 import '../styles/profile.css';
 import '../styles/home.css';
 import '../styles/jobs.css';
+import { Provider } from 'react-redux';
+import store from '../redux/store'
 
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 
