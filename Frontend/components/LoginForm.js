@@ -40,6 +40,7 @@ const LoginForm = () => {
                 loading: false
             })
             localStorage.setItem('jid','test');
+            localStorage.setItem('pts', 400);
             dispatch(userInfoUpdate({userName, points: 400}))
             setTimeout(() => {
                 router.push(`/`)

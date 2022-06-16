@@ -14,7 +14,6 @@ const Footer = () => {
   React.useEffect( () => {
       if (typeof window !== 'undefined') {
           jwt = localStorage.getItem('jid');
-          console.log(jwt);
           if (jwt != null){
               handleLoggedIn(true);
           }
