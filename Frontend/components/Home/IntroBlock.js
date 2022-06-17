@@ -23,7 +23,7 @@ const IntroBlock = () => {
             <Grid md={6} xs={12} item style={{textAlign: "center",marginTop: 50}}>
                 <Typography variant="h3" style={{fontWeight: 700}}>Earn points &amp; get worthy prizes!</Typography>
                 <Typography variant="h5"  style={{fontWeight: 100}}>Million points already earned <br/>and 10,000+ prizes given away</Typography>
-                <Link href={loggedin ? "/jobs/1" : "/login"}>
+                <Link href={loggedin ? "/jobs/1" : "/register"}>
                   <Button variant="contained" style={{backgroundColor: "white", color: "#0cafe5", marginTop: 25}}>Start earning</Button>
                 </Link>                
             </Grid>            
