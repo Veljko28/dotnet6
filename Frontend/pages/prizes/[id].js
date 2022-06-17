@@ -83,34 +83,49 @@ export default function Prizes() {
   const router = useRouter();
   const id = router.query['id'];
 
-  const [sortOpt, changeSortOpt] = React.useState("None");
-  
+  let mapProducts = product;
+  const [sortOpt, changeSortOpt] = React.useState(1);
+  React.useEffect(() => {
+    console.log(sortOpt)
+    switch (sortOpt){
+      case 1:
+          mapProducts = product;
+          break;
+        case 10:
+          mapProducts.sort((a,b) => a.price - b.price);
+          break;
+        case 20:
+          mapProducts.sort((a,b) => b.price - a.price);
+          break;
+        default: 
+          break;
+      }
+  },[sortOpt])  
   return (
-    <Grid container style={{backgroundColor: '#0cafe5'}}>
+    <div style={{backgroundColor: '#0cafe5'}}>
       <TitleChange title="Prizes"/>
-      <Grid container item xs={12}>
-        <div style={{display: "flex", justifyContent: "space-around"}}>
-          <div></div>
-          <h1 style={{color: 'white'}}>Products</h1>
-          <Select
-              value={sortOpt}
-              onChange={(e) => changeSortOpt(e.target.value)}
-              displayEmpty
-              style={{backgroundColor: "White", marginTop: 20}}
-            >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </div>
-      </Grid>
-      <Grid item style={{ padding: 20, textAlign: "center"}} >
+      <div style={{display: "flex", justifyContent: "space-between", padding: 10}}>
+          <div> </div>
+          <h1 style={{color: 'white', textAlign: 'center'}}>Products</h1>
+          <div>
+            <span style={{color: "white", fontWeight: "bold"}}>Sorting: </span>
+            <Select
+                value={sortOpt}
+                onChange={(e) => changeSortOpt(e.target.value)}
+                style={{backgroundColor: "white", width: 150, height: 40}}
+              >
+              <MenuItem value={1} disabled>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Points Asc</MenuItem>
+              <MenuItem value={20}>Points Desc</MenuItem>
+            </Select>
+          </div>
+      </div>
+      <div style={{ padding: 20, textAlign: "center"}} >
         {product.map(x => <ProductCard key={x.id} {...x}/>)}
         <Pages pageId={id} numOfPages={5} pageType={"prizes"}/>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   )
 }
