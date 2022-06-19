@@ -18,9 +18,9 @@
         public static class ProductRoutes
         {
             public const string parent = "/product";
-            public const string GetAllProducts = parent + "/all";
-            public const string AddProduct = parent + "/add";
-            public const string TakeProduct = parent + "/take/{id}";
+            public const string GetAllProducts = root + version + parent + "/all";
+            public const string AddProduct = root + version + parent + "/add";
+            public const string TakeProduct = root + version + parent + "/take/{id}";
 
         }
 
