@@ -9,6 +9,7 @@ import { SnackBarSuccess } from '../constants/SnackBar';
 import * as yup from 'yup';
 import { Typography, Checkbox } from '@mui/material';
 import Link from 'next/link'
+import { fetchPost } from '../constants/customFetching';
 
 
 const yupSchema = yup.object().shape({
@@ -38,7 +39,6 @@ const RegisterForm = () => {
             password: document.getElementById("password").value,
             confirm_password: document.getElementById("confirm_password").value,
         }
-        console.log(form);
     try {
         await yupSchema.validate(form, {abortEarly: false});
         if (form.password !== form.confirm_password) {
@@ -54,8 +54,11 @@ const RegisterForm = () => {
         return;
       }
       
-      changeSnackBar({...snackBar,success: true});
-      setTimeout(() => router.push('/login'), 1500);
+      const res = fetchPost("api/v1/user/register", form);
+      if (res.status === 200){
+        changeSnackBar({...snackBar,success: true});
+        setTimeout(() => router.push('/login'), 1500);
+      }
     }
 
 
